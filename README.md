@@ -8,30 +8,30 @@ Platform: x86_64-suse-linux-gnu (64-bit)
 
 ##Instructions
 ###Requirements:
-* The servers *MySQL Community Edition 5.5* or *MariaDB 5.5* must be installed:
+* The database servers **MySQL Community Edition 5.5** or **MariaDB 10.0.25** must be installed:
 >http://dev.mysql.com/downloads/mysql/
 
-* Any database client, or graphical frontend, can be used, such as *MySQLWorkbench 6.3*:
+* Any database client, or graphical frontend, can be used; such as *MySQLWorkbench 6.3*:
 >http://dev.mysql.com/downloads/workbench/
 
-* In the database configuration file ( `my.cnf`), the next lines must be added to allow the direct load of data from text files and to discard errors in the creation of dinamic tables that are used by some StoreProcedures:
->After:
+* In the database configuration file (`my.cnf`), the next lines must be added to allow the direct load of data from text files and to discard errors in the creation of dinamic tables that are used by some StoreProcedures:
+  >After:
 
->** `[mysqld]`**
-
-
-> Add:
-
-> `# Security warning: allow LOAD DATA INFILE`
-
-> `loose-local-infile=1`
-
-> `# To allow for slow queries, queries with big columns or with calculated tables (64M)`
-
-> `max_allowed_packet = 67108864`
+  >** `[mysqld]`**
 
 
-> **NOTE:** Keep a copy of the original configuration file " `my.cnf`".
+  > Add:
+
+  > `# Security warning: allow LOAD DATA INFILE`
+
+  > `loose-local-infile=1`
+
+  > `# To allow for slow queries, queries with big columns or with calculated tables (64M)`
+
+  > `max_allowed_packet = 67108864`
+
+
+  > **NOTE:** Keep a copy of the original configuration file "`my.cnf`".
 
 * In the configuration of *Workbench*, go to 'Edit->Preferences...->SQL Editor' and in the option 'DBMS connection read time out (in seconds)' change from 600 to **86400**.
   * The interpolation process is slow; without this change, the interpolation process will remain inclomplete after 10 minutes.
