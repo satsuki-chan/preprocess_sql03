@@ -17,10 +17,10 @@ Platform: x86_64-suse-linux-gnu (64-bit)
 * In the database configuration file (`my.cnf`), the next lines must be added to allow the direct load of data from text files and to discard errors in the creation of dinamic tables that are used by some StoreProcedures:
   >After:
 
-  >** `[mysqld]`**
+  > ** `[mysqld]`**
 
 
-  > Add:
+  >Add:
 
   > `# Security warning: allow LOAD DATA INFILE`
 
@@ -34,8 +34,8 @@ Platform: x86_64-suse-linux-gnu (64-bit)
   > **NOTE:** Keep a copy of the original configuration file "`my.cnf`".
 
 * In the configuration of *Workbench*, go to 'Edit->Preferences...->SQL Editor' and in the option 'DBMS connection read time out (in seconds)' change from 600 to **86400**.
-  * The interpolation process is slow; without this change, the interpolation process will remain inclomplete after 10 minutes.
-  * In case of ussing another graphic database client, search for the option that aloows to increase the query delay time in the configuration preferences.
+  * The interpolation process is slow; without this change, the interpolation process will remain incomplete after 10 minutes.
+  * In case of ussing another graphic database client, search for the option that allows to increase the query delay time in the configuration preferences.
 
 
 ###Execution instructions:
@@ -75,7 +75,7 @@ Platform: x86_64-suse-linux-gnu (64-bit)
 
 ####The script files must be exetuted in the graphic client in the next order:
 1. `1_crea_basededatos.sql`
-> Creates the database schema, the tables for the original data, the interpolated data, the normalized data and the annual return rates.
+> Creates the database schema and tables to store the original historic price data, the interpolated data, the normalized data and the annual return rates.
 
   * **Database:**
     * RVMexico
@@ -133,8 +133,6 @@ Platform: x86_64-suse-linux-gnu (64-bit)
 > These scripts containt the instructions to execute the funds' yearly return rates calculation process. Use acording to their instructions.
 
 ###Important notes:
-> To just recreate the database, without needing to repeate the data preprocessment process, execute the scritps:
-  * `1_crea_basededatos.sql`
-  * `db.RVMexico.sql`
-
-> in that order.
+> To just recreate the database, without needing to repeat the data preprocessing process, execute the scritps in the order:
+  1. `1_crea_basededatos.sql`
+  2. `db.RVMexico.sql`
