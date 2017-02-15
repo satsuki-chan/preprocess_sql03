@@ -1,17 +1,14 @@
-/* Script para el cálculo de las tasas de retorno anual (1 año) regularizadas (divididas entre 100, por ser porcentajes), 
- en base a la tasas de interés interpoladas de los índices, en RVMexico.market_rrates_interpolated
- * La fecha para el inicio del cálculo de tasas anuales es: '2012-01-02', dado que es la primera fecha a partir
- de la cual se pueden cualcular las tasas de retorno anualizadas a partir de '2010-12-31' (fecha inicio de
- normalización de precios de fondos) */
-/* La fecha para el fin de análisis es: '2015-12-31' */
+/* Script for the calculation of the regularized (divided between 100, due to orginally being percentanges) annual rates of return (1 year), based on the interpolated return rates of the indexes on table RVMexico.market_rrates_interpolated
+ * The yearly rates start date is '2012-01-02', given that is the first date from wich the annual return rates can be calculated from '2010-12-31' (the date used to begin the funds' price normalization process)
+ * Date for end of analysis: '2015-12-31' */
 
 USE RVMexico;
 
-/* Calcular la tasa anualizada de tasas a partir  de la fecha utilizada en la normalización de precios de fondos
-y hasta la fecha límite de análisis de precios de fondos. */
+/* Calculate the annual rates from the same date used in the funds' price normalization process
+to the limit date for the funds' price analysis. */
 CALL RVMexico.d_rrates_yearly_return_rates('2012-01-02', '2015-12-31'); -- 1.363 segs.
 
 SELECT * FROM RVMexico.market_rrates_return_rates LIMIT 1100;
 
-/* Total de tasas de retorno calculadas: 1,044 */
+/* Total calculated rates of return: 1,044 */
 SELECT count(*) FROM RVMexico.market_rrates_return_rates;
