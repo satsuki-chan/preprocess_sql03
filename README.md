@@ -15,9 +15,9 @@ Platform: x86_64-suse-linux-gnu (64-bit)
 >http://dev.mysql.com/downloads/workbench/
 
 * In the database configuration file (`my.cnf`), the next lines must be added to allow the direct load of data from text files and to discard errors in the creation of dinamic tables that are used by some StoreProcedures:
-  >After:
+  >After section:
 
-  > `**[mysqld]**`
+  > `** [mysqld] **`
 
 
   >Add:
