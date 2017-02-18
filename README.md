@@ -61,6 +61,10 @@ Platform: x86_64-suse-linux-gnu (64-bit)
 * `db.RVMexico.sql`
 
 ####Data backup files:
+* `RVMexico.prices.csv`
+* `RVMexico.prices_interpolated.csv`
+* `RVMexico.prices_normalized.csv`
+* `RVMexico.prices_return_rates.csv`
 * `RVMexico.market.csv`
 * `RVMexico.market_interpolated.csv`
 * `RVMexico.market_normalized.csv`
@@ -68,10 +72,6 @@ Platform: x86_64-suse-linux-gnu (64-bit)
 * `RVMexico.market_rrates.csv`
 * `RVMexico.market_rrates_interpolated.csv`
 * `RVMexico.market_rrates_return_rates.csv`
-* `RVMexico.prices.csv`
-* `RVMexico.prices_interpolated.csv`
-* `RVMexico.prices_normalized.csv`
-* `RVMexico.prices_return_rates.csv`
 
 ####The script files must be exetuted in the graphic client in the next order:
 1. `1_crea_basededatos.sql`
@@ -92,11 +92,8 @@ Platform: x86_64-suse-linux-gnu (64-bit)
     * market_rrates_interpolated
     * market_rrates_return_rates
 
-2. `2_carga_datos.sql`, `2_carga_datos_bmv.sql`, `2_carga_datos_extra.sql` and `2_carga_datos_tasas.sql`
-> These scripts load the downloaded funds' historical price information in the database need to begin the data preprocessment. Use acording to their instructions.
-
-3. `3_1_fn_y_sp.sql`, `3_2_fn_y_sp_bmv.sql`, `3_2_fn_y_sp_extra.sql` and `3_2_fn_y_sp_tasas.sql`
-> This scripts have the functions and store procedures used in the interpolation, normaliations and yearly return rates calculation process.
+2. `3_1_fn_y_sp.sql`, `3_2_fn_y_sp_bmv.sql`, `3_2_fn_y_sp_extra.sql` and `3_2_fn_y_sp_tasas.sql`
+> This scripts have the functions and store procedures used in the interpolation, normaliations and yearly return rates calculation process. Execute before the next scripts.
 
   * **Functions:**
     * fn_interpolation
@@ -122,6 +119,9 @@ Platform: x86_64-suse-linux-gnu (64-bit)
     * d_market_yearly_return_rates
     * d_prices_yearly_return_rates
     * d_rrates_yearly_return_rates
+
+3. `2_carga_datos.sql`, `2_carga_datos_bmv.sql`, `2_carga_datos_extra.sql` and `2_carga_datos_tasas.sql`
+> These scripts load the downloaded funds' historical price information in the database need to begin the data preprocessment. Use acording to their instructions.
 
 4. `3_interpola_datos.sql`, `3_interpola_datos_extra.sql`, `3_interpola_datos_bmv.sql` and `3_interpola_datos_tasas.sql`
 > These scripts containt the instructions to execute the funds' price interpolation process. Use acording to their instructions.

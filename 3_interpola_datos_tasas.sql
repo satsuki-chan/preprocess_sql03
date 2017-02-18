@@ -1,14 +1,14 @@
-/* Script para interpolacion de datos en RVMexico.market_rrates_interpolated */
+/* Script for the interpolation of data in table RVMexico.market_rrates_interpolated */
 USE RVMexico;
 
-/* Crea rangos de fechas faltantes para interpolar (dias laborales) */
-CALL RVMexico.a_fillin_dates_market_rrates(); -- 3.219 segs.
+/* Insertion of missing dates and date ranges to interpolate (business days) */
+CALL RVMexico.a_fillin_dates_market_rrates(); -- Execution time: 3.219 segs.
 
-/* Total de fechas a interpolar: 5,975 */
+/* Total number of dates to interpolate: 5,975 */
 SELECT count(*) FROM RVMexico.market_rrates_interpolated WHERE c_rate is null;
 
-/* Proceso de interpolacion para todas las tasas de los índices */
-CALL RVMexico.b_interpolate_index_rrates(); -- 0.484 segs
+/* Interpolation process for all index rates */
+CALL RVMexico.b_interpolate_index_rrates(); -- Execution time: 0.484 segs
 
-/* Total de fechas interpoladas: 6,561 */
+/* Total number of interpolated dates: 6,561 */
 SELECT count(*) FROM RVMexico.market_rrates_interpolated WHERE c_rate is not null;

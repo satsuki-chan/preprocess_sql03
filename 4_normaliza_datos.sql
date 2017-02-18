@@ -1,12 +1,12 @@
-/* Script para normalización de datos en RVMexico.prices_normalized 
- * La fecha para el inicio de la normalización de fondos es: '2010-12-31' */
+/* Script for normalization of data in table RVMexico.prices_normalized
+ * The date for the beginning of the normalization of funds is: '2010-12-31' */
 
 USE RVMexico;
 
-/* Normalizar precios en base al precio de la fecha proporcionada */
-CALL RVMexico.c_normalize_prices('2010-12-31'); -- 5.355
+/* Normalize prices based on the price of the provided date */
+CALL RVMexico.c_normalize_prices('2010-12-31'); -- Execution time: 5.355
 
 SELECT * FROM RVMexico.prices_normalized LIMIT 240000;
 
-/* Total de precios normalizados: 238,761 */
+/* Total number of normalized prices: 238,761 */
 SELECT count(*) FROM RVMexico.prices_normalized;

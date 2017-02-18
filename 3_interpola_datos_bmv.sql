@@ -1,15 +1,15 @@
-/* Script para interpolacion de datos en RVMexico.market_interpolated */
+/* Script for the data interpolation in table RVMexico.market_interpolated */
 
 USE RVMexico;
 
-/* Crea rangos de fechas faltantes para interpolar (dias laborales) */
-CALL RVMexico.a_fillin_dates_market(); -- 2.900 segs.
+/* Insertion of missing dates and date ranges to interpolate (business days) */
+CALL RVMexico.a_fillin_dates_market(); -- Execution time: 2.900 segs.
 
-/* Total de fechas a interpolar: 463 */
+/* Total number of dates to interpolate: 463 */
 SELECT count(*) FROM RVMexico.market_interpolated WHERE c_price is null;
 
-/* Proceso de interpolacion para todos los índices */
-CALL RVMexico.b_interpolate_index_prices(); -- 1.200 segs
+/* Interpolation process for all indexes */
+CALL RVMexico.b_interpolate_index_prices(); -- Execution time: 1.200 segs
 
-/* Total de fechas interpoladas: 11,190 */
+/* Total number of interpolated dates: 11,190 */
 SELECT count(*) FROM RVMexico.market_interpolated WHERE c_price is not null;

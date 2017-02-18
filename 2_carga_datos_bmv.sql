@@ -1,9 +1,10 @@
-/* Script para carga de historial de precios de la Bolsa Mexicana de Valores (BMV) obtenidos del sitio de Yahoo! Finance */
+/* Script for charging the history of prices of the Mexican Stock Exchange (BMV) obtained from the
+Yahoo! Finance site. */
 USE RVMexico;
 
 TRUNCATE TABLE RVMexico.market;
 
-/*Ejemplos:
+/* Examples:
 [Windows] LOAD DATA INFILE 'C:\home\usario\Projects\yahoo-finance\found_data_201511_1.csv'
 [Linux] LOAD DATA INFILE '/home/usuario/Projects/yahoo-finance/found_data_201511_1.csv' */
 LOAD DATA INFILE '/<absolute>/<path>/<to>/<file>/raw_BMV_data_format.csv'
@@ -43,4 +44,3 @@ SELECT * FROM RVMexico.market LIMIT 12000;
 
 /* Total de filas con precios: 10,727*/
 SELECT count(distinct a_index, b_date) FROM RVMexico.market;
-

@@ -1,29 +1,29 @@
-/* Script para continuar interpolacion de datos agregados en RVMexico.prices_interpolated */
+/* Script to continue interpolation of aggregate data in table RVMexico.prices_interpolated */
 
 USE RVMexico;
 
-/* Crea rangos de fechas faltantes para interpolar (dias laborales) */
+/* Insertion of missing dates and date ranges to interpolate (business days) */
 CALL RVMexico.a_fillin_dates_from_last_date();
 
-/* Total de fechas a interpolar: 299 */
+/* Total of dates to interpolate: 299 */
 SELECT count(*) FROM RVMexico.prices_interpolated WHERE c_price is null;
 
-/* Proceso de interpolacion por letra de inicio de los fondos */
-CALL RVMexico.b_interpolate_prices_from_last_date('C'); --   785
-CALL RVMexico.b_interpolate_prices_from_last_date('O'); --   887
-CALL RVMexico.b_interpolate_prices_from_last_date('E'); --  1139
-CALL RVMexico.b_interpolate_prices_from_last_date('D'); --  2959
-CALL RVMexico.b_interpolate_prices_from_last_date('N'); --  5194
-CALL RVMexico.b_interpolate_prices_from_last_date('M'); --  5718
-CALL RVMexico.b_interpolate_prices_from_last_date('P'); --  6304
-CALL RVMexico.b_interpolate_prices_from_last_date('G'); --  8714
-CALL RVMexico.b_interpolate_prices_from_last_date('F'); --  9245
-CALL RVMexico.b_interpolate_prices_from_last_date('A'); --  9716
-CALL RVMexico.b_interpolate_prices_from_last_date('H'); -- 11219
-CALL RVMexico.b_interpolate_prices_from_last_date('B'); -- 11355
-CALL RVMexico.b_interpolate_prices_from_last_date('S'); -- 14356
-CALL RVMexico.b_interpolate_prices_from_last_date('V'); -- 15822
-CALL RVMexico.b_interpolate_prices_from_last_date('I'); -- 16593
+/* Interpolation process per fund's ticker symbol initial. */
+CALL RVMexico.b_interpolate_prices_from_last_date('C'); -- Execution time:    785 segs
+CALL RVMexico.b_interpolate_prices_from_last_date('O'); -- Execution time:    887 segs
+CALL RVMexico.b_interpolate_prices_from_last_date('E'); -- Execution time:  1,139 segs
+CALL RVMexico.b_interpolate_prices_from_last_date('D'); -- Execution time:  2,959 segs
+CALL RVMexico.b_interpolate_prices_from_last_date('N'); -- Execution time:  5,194 segs
+CALL RVMexico.b_interpolate_prices_from_last_date('M'); -- Execution time:  5,718 segs
+CALL RVMexico.b_interpolate_prices_from_last_date('P'); -- Execution time:  6,304 segs
+CALL RVMexico.b_interpolate_prices_from_last_date('G'); -- Execution time:  8,714 segs
+CALL RVMexico.b_interpolate_prices_from_last_date('F'); -- Execution time:  9,245 segs
+CALL RVMexico.b_interpolate_prices_from_last_date('A'); -- Execution time:  9,716 segs
+CALL RVMexico.b_interpolate_prices_from_last_date('H'); -- Execution time: 11,219 segs
+CALL RVMexico.b_interpolate_prices_from_last_date('B'); -- Execution time: 11,355 segs
+CALL RVMexico.b_interpolate_prices_from_last_date('S'); -- Execution time: 14,356 segs
+CALL RVMexico.b_interpolate_prices_from_last_date('V'); -- Execution time: 15,822 segs
+CALL RVMexico.b_interpolate_prices_from_last_date('I'); -- Execution time: 16,593 segs
 
-/* Total de fechas interpoladas: 452,070 + 4,069 + 299 = 456,438*/
+/* Total number of interpolated dates: 452,070 + 4,069 + 299 = 456,438*/
 SELECT count(*) FROM RVMexico.prices_interpolated WHERE c_price is not null;
