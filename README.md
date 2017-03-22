@@ -1,4 +1,4 @@
-# Database to store the preprocessing phase data for the calculation of the funds' Modern Portfolio Theory (MPT) statistics and machine learning novel analysis
+# Database to store the preprocessing phase data for the calculation of the funds' Modern Portfolio Theory (MPT) statistics and the novel machine learning analysis
 ## Interpolation, normalization and 364 day return rates of:
 * Selected Mexican equity funds (from 31-12-2010 to 31-12-2015)
 * The **Mexican Stock Exchange** (BMV, *Bolsa Mexicana de Valores*)
@@ -136,7 +136,7 @@ Platform: x86_64-suse-linux-gnu (64-bit)
 6. `5_calcula_tasas_retorno.sql`, `5_calcula_tasas_retorno_bmv.sql` and `5_calcula_tasas_retorno_de_tasas.sql`
 > These scripts containt the instructions to execute the funds' yearly return rates calculation process. Use acording to their instructions.
 
-###Important notes:
+### Important notes:
 > To just recreate the database, without needing to repeat the data preprocessing process, execute the scritps in the order:
   1. `1_crea_basededatos.sql`
   2. `db.RVMexico.sql`
