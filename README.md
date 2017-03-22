@@ -1,13 +1,17 @@
-# Interpolation, normalization and 364 day return rates of selected Mexican equity funds (from 31-12-2010 to 31-12-2015), the Mexican Stock Exchange (BMV, *Bolsa Mexicana de Valores*) and the 364 Days Treasury Certificates (CETES364D, *Certificados de la Tesorería a 364 días*) for the calculation of the funds' Modern Portfolio Theory (MPT) variables and a funds' clustering analysis
+# Database to store the preprocessing phase data for the calculation of the funds' Modern Portfolio Theory (MPT) statistics and machine learning novel analysis
+## Interpolation, normalization and 364 day return rates of:
+* Selected Mexican equity funds (from 31-12-2010 to 31-12-2015)
+* The **Mexican Stock Exchange** (BMV, *Bolsa Mexicana de Valores*)
+* The **364 Days Treasury Certificates** (CETES364D, *Certificados de la Tesorería a 364 días*)
 
-##MariaDB version 10.0.25
+## MariaDB version 10.0.25
 Platform: x86_64-suse-linux-gnu (64-bit)
 >**MariaDB Foundation (2015)**. *Welcome to MariaDB! - MariaDB*.
 
 >https://mariadb.org/
 
-##Instructions
-###Requirements:
+## Instructions
+### Requirements:
 * The database servers **MySQL Community Edition 5.5** or **MariaDB 10.0.25** must be installed:
 >http://dev.mysql.com/downloads/mysql/
 
@@ -38,8 +42,8 @@ Platform: x86_64-suse-linux-gnu (64-bit)
   * In case of ussing another graphic database client, search for the option that allows to increase the query delay time in the configuration preferences.
 
 
-###Execution instructions:
-####Script files:
+### Execution instructions:
+#### Script files:
 * `1_crea_basededatos.sql`
 * `2_carga_datos_bmv.sql`
 * `2_carga_datos_extra.sql`
@@ -60,7 +64,7 @@ Platform: x86_64-suse-linux-gnu (64-bit)
 * `5_calcula_tasas_retorno.sql`
 * `db.RVMexico.sql`
 
-####Data backup files:
+#### Data backup files:
 * `RVMexico.prices.csv`
 * `RVMexico.prices_interpolated.csv`
 * `RVMexico.prices_normalized.csv`
@@ -73,7 +77,7 @@ Platform: x86_64-suse-linux-gnu (64-bit)
 * `RVMexico.market_rrates_interpolated.csv`
 * `RVMexico.market_rrates_return_rates.csv`
 
-####The script files must be exetuted in the graphic client in the next order:
+#### The script files must be exetuted in the graphic client in the next order:
 1. `1_crea_basededatos.sql`
 > Creates the database schema and tables to store the original historic price data, the interpolated data, the normalized data and the annual return rates.
 
